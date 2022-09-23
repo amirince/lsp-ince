@@ -36,7 +36,7 @@ public class Combinations
      */
     public void compute(int[] input, int sum)
 	{
-    	clearData();	//Clearing data in class variables
+    	clearData();	//Clearing data in class variables each time compute is called
 		target=sum;		//initializing target as sum
 		
 		
@@ -90,8 +90,8 @@ public class Combinations
 	            //Recursively call getSummation with an incremented start index
 	            getSummation(data,currIndex+1,endIndex);
 	            
-	            //Remove values from stack as we traverse back up the recursive stack
-	            //to clear the sumInStack variable
+	            //Remove values from stack as we traverse back up the 
+	            //recursive call stack to clear the sumInStack variable
 	            sumInStack-=data[stack.pop()];
 	        }  
 	    }
