@@ -40,7 +40,7 @@ public class IntegerSet  {
 	 * 
 	 * Returns true if the 2 sets are equal, false otherwise;
 	 * Two sets are equal if they contain all of the same values in ANY order.
-	 * @param IntegerSet object B
+	 * @param b object of IntegerSet
 	 * @return True if sets are equal, False is they are not
 	 */
 	public boolean equals(IntegerSet b) {
@@ -110,7 +110,7 @@ public class IntegerSet  {
 		{
 			System.out.println("Error:Set is empty");
 		}
-		return 0;
+		return -1;
 	}; 
 	
 	
@@ -145,7 +145,7 @@ public class IntegerSet  {
 	
 	
 	/**
-	 *  Adds an item to the set or does nothing it already there	
+	 *  Adds an item to the set or does nothing if already there	
 	 * @param item to be added to set 
 	 */
 	public void add(int item) {
