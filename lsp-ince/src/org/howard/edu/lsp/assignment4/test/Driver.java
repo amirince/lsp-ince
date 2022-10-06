@@ -11,6 +11,7 @@ public class Driver {
 		set1.add(2);
 		set1.add(3);
 		set1.add(4);
+		System.out.println("Inserting 1,2,3,4 to set2");
 		
 		//Testing basic set functions
 		System.out.println("Value of Set1 is: " + set1.toString());
@@ -27,8 +28,11 @@ public class Driver {
 		set2.add(7);
 		set2.add(9);
 		set2.add(9); //Testing that set can only have one instance of an element
+		System.out.println("Inserting 4,5,3,7,9,9 to set2");
 		System.out.println("Value of Set2 is: " + set2.toString());
+		System.out.println("Removing 7 from set2");
 		set2.remove(7); //removing element from set 2
+		System.out.println("Trying to Removing 0 from set2 (element not in set)");
 		set2.remove(0); //removing element from set that does now exist 
 		System.out.println("Value of Set2 after removing 7: " + set2.toString());
 		System.out.println("");
