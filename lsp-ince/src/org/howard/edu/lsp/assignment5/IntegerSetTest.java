@@ -82,7 +82,7 @@ class IntegerSetTest {
 		//Testing if empty sets contains element 
 		Assert.assertFalse(set1.contains(1));
 		
-		//testing is non-empty set contains element 2
+		//testing is non-empty set contains element 20
 		set1.add(20);
 		Assert.assertTrue(set1.contains(20));
 		Assert.assertFalse(set1.contains(50));
@@ -334,7 +334,7 @@ class IntegerSetTest {
 	@Test
 	@DisplayName("Test cases for ToString")
 	void testToString() {
-		//Testing tostring with empty sret
+		//Testing tostring with empty set
 		IntegerSet set1 = new IntegerSet();
 		Assert.assertTrue(set1.toString().equals("[]"));
 		
