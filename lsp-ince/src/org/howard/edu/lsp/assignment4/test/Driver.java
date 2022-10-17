@@ -114,15 +114,21 @@ public class Driver {
 		System.out.println("Value of Set5 is: " + set5.toString());
 		System.out.println("Is 70 in set5: " + set5.contains(70));
 		System.out.println("Is 11 in set5: " + set5.contains(11));
+		System.out.println("");
 		
+		System.out.println("Testing difference function");
+		System.out.println("Value of Set4 is: " + set4.toString());
+		System.out.println("Value of Set5 is: " + set5.toString());
+		set4.diff(set5);
+		System.out.println("Difference of Set4 and Set5 is: " + set4.toString());
 		
+		IntegerSet set6 = new IntegerSet();
+		set6.add(9);
+		set6.add(10);
 		
-		
-		
-		
-	
-	
-		
-
+		System.out.println("Value of Set5 is: " + set5.toString());
+		System.out.println("Value of Set6 is: " + set6.toString());
+		set5.diff(set6);
+		System.out.println("Difference of Set5 and Set6 is: " + set6.toString());
 	}
 }

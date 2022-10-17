@@ -1,4 +1,5 @@
-package org.howard.edu.lsp.assignment4.implementation;
+package org.howard.edu.lsp.assignment5;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -44,24 +45,30 @@ public class IntegerSet  {
 	 * @return True if sets are equal, False is they are not
 	 */
 	public boolean equals(IntegerSet b) {
+		
 		String str = b.getSet();
 		List<Integer> bSet = new ArrayList<Integer>();
-	    
-	     for(String x : str.split(" ")){
-	    	 bSet.add(Integer.valueOf(x));
-	    	 //bSet.add(Integer.parseInt(x));
-	     }
-	    //Edge case if both sets are empty they are equal
-		if (b.isEmpty() && isEmpty()){
+		//Edge case if both sets are empty they are equal
+		if (b.length()==0 && set.size()==0){
 	        return true;
 	    }
 		
-		//If one set is empty and the other is nor or if sets do not have same length, return false
-	    if((set == null && bSet!= null) || set!= null && bSet == null || set.size() != b.length())
-	    {
-	        return false;
+		if (str.length()!=0) {
+	    	for(String x : str.split(" ")){
+		         bSet.add(Integer.valueOf(x));
+		     }
 	    }
-
+	    		
+		if(set.size()==0 || b.length()==0)
+		{
+			return false;
+		}
+		
+		if(set.size()!=b.length())
+		{
+			return false;
+		}
+		
 	    //to avoid messing the order of the lists we will use a copy
 	    set = new ArrayList<Integer>(set); 
 	    bSet = new ArrayList<Integer>(bSet);   
@@ -84,34 +91,42 @@ public class IntegerSet  {
 	};    
 	
 	/**
-	 * Returns the largest item in the set;
+	 * Returns the largest item in the set by calling largestHelper method;
 	 * @return value of the largest item in the set
-	 * @throws IntegerSetException if the set is empty 
 	 */
 	public int largest(){
+		int max=0;
 		try {
-			//If the set is empty, throw an IntegersetException
-			if (isEmpty()){
-				throw new IntegerSetException();
-			}
-			//initializing max variable to keep track of largest element 
-			int max=set.get(0);
-			
-			//looping through array list to find largest
-			for (int i=1;i<set.size();i++)
-			{
-				if(max<set.get(i))
-					max=set.get(i);
-			}
-			return max;		//returning the max value
+			max=largestHelper();
 		}
-		//catch exception if thrown 
-		catch (IntegerSetException ise)
+		catch(IntegerSetException ise)
 		{
-			System.out.println("Error:Set is empty");
+			System.out.println("Error: Set is empty");
 		}
-		return -1;
+		return max;
 	}; 
+	
+	/**
+	 * Returns the largest element in set, if empty throws exception
+	 * @return
+	 * @throws IntegerSetException if set is empty
+	 */
+	protected int largestHelper() throws IntegerSetException
+	{
+		if (isEmpty()){
+			throw new IntegerSetException("Error:Set is empty");	
+		//initializing max variable to keep track of largest element 
+		}
+		int max=set.get(0);
+		
+		//looping through array list to find largest
+		for (int i=1;i<set.size();i++)
+		{
+			if(max<set.get(i))
+				max=set.get(i);
+		}
+		return max;		//returning the max value
+	}
 	
 	
 	/**
@@ -120,28 +135,39 @@ public class IntegerSet  {
 	 * @throws IntegerSetException if the set is empty 
 	 */
 	public int smallest(){
-		
+		int smallestVal=0;
 		try {
-			//If the set is empty IntegerSetException
-			if (isEmpty()){
-				throw new IntegerSetException();
-			}
-			//Setting smallest as first element in ArrayList 
-			int smallest=set.get(0);
-			//Looping through ArrayList to find the smallest element  
-			for (int i=1;i<set.size();i++)
-			{
-				if(smallest>set.get(i))
-					smallest=set.get(i);
-			}
-			//returning smallest element
-			return smallest;
+			smallestVal=smallestHelper();	
 		}
 		catch (IntegerSetException ise){
-			System.out.println("Error:Set is empty");
+			System.out.println("Error: Set is empty");
 		}
-		return -1;
+		return smallestVal;
 	};
+	
+	/**
+	 * returns smallest value in set, if empty throws exception
+	 * @return
+	 * @throws IntegerSetException
+	 */
+	protected int smallestHelper() throws IntegerSetException
+	{
+		int smallest=0;
+		
+		if (isEmpty()){
+			throw new IntegerSetException("Error:Set is empty");
+		}
+		//Setting smallest as first element in ArrayList 
+		smallest=set.get(0);
+		//Looping through ArrayList to find the smallest element  
+		for (int i=1;i<set.size();i++)
+		{
+			if(smallest>set.get(i))
+				smallest=set.get(i);
+		}
+		//returning smallest element
+		return smallest;
+	}
 	
 	
 	/**
@@ -171,10 +197,12 @@ public class IntegerSet  {
 		//Geting the set from intSetb object
 		String str = intSetb.getSet();
 		List<Integer> bSet = new ArrayList<Integer>();
-	    
-	     for(String x : str.split(" ")){
-	         bSet.add(Integer.valueOf(x));
-	     }
+	    if (str.length()!=0) {
+	    	for(String x : str.split(" ")){
+		         bSet.add(Integer.valueOf(x));
+		     }
+	    }
+	     
 	     
 		//Checking if an element of Bset is not in Set then we add it to set 
 		for(int y=0;y<intSetb.length();y++)
@@ -196,9 +224,11 @@ public class IntegerSet  {
 		String str = intSetb.getSet();
 		List<Integer> setB = new ArrayList<Integer>();
 	    
-	     for(String x : str.split(" ")){
-	    	 setB.add(Integer.valueOf(x));
-	     }
+		if (str.length()!=0) {
+	    	for(String x : str.split(" ")){
+		         setB.add(Integer.valueOf(x));
+		     }
+	    }
 	    
 	     //Creating new array list to store the intersection of sets 
 	     List<Integer> intersect = new ArrayList<Integer>();
@@ -239,9 +269,11 @@ public class IntegerSet  {
 		String str = intSetb.getSet();
 		List<Integer> setB = new ArrayList<Integer>();
 	    
-	     for(String x : str.split(" ")){
-	         setB.add(Integer.valueOf(x));
-	     }
+		if (str.length()!=0) {
+	    	for(String x : str.split(" ")){
+		         setB.add(Integer.valueOf(x));
+		     }
+	    }
 	     
 		List<Integer> diff = new ArrayList<Integer>();
 		
@@ -299,4 +331,3 @@ public class IntegerSet  {
 	}; //returns Set as string with whitespace between values
 	
 }
-	
