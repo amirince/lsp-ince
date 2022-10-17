@@ -10,6 +10,7 @@ class IntegerSetTest {
 	@Test
 	@DisplayName("Test cases for Clear")
 	void testClear() {
+		//Testing clear method 
 		IntegerSet set1 = new IntegerSet();
 		set1.add(1);
 		set1.add(2);
@@ -23,12 +24,14 @@ class IntegerSetTest {
 	@Test
 	@DisplayName("Test cases for Length")
 	void testLength() {
+		//testing length of empty set
 		IntegerSet set1 = new IntegerSet();
 		Assert.assertTrue(0==set1.length());
 		set1.add(1);
+		//testing length of non-empty set
 		Assert.assertTrue(1==set1.length());
-		set1.add(1);
-		Assert.assertTrue(1==set1.length());
+		set1.add(2);
+		Assert.assertTrue(2==set1.length());
 	}
 
 	@Test
@@ -73,10 +76,13 @@ class IntegerSetTest {
 	}
 
 	@Test
-	@DisplayName("Test cases for containes")
+	@DisplayName("Test cases for contains")
 	void testContains() {
 		IntegerSet set1 = new IntegerSet();
+		//Testing if empty sets contains element 
 		Assert.assertFalse(set1.contains(1));
+		
+		//testing is non-empty set contains element 2
 		set1.add(20);
 		Assert.assertTrue(set1.contains(20));
 		Assert.assertFalse(set1.contains(50));
@@ -314,7 +320,10 @@ class IntegerSetTest {
 	@Test
 	@DisplayName("Test cases for IsEmpty")
 	void testIsEmpty() {
+		//testing that empty set is empty
 		IntegerSet set1 = new IntegerSet();
+		
+		//testing that non-empty set is not empty
 		Assert.assertTrue(set1.isEmpty());
 		set1.add(10);
 		Assert.assertFalse(set1.isEmpty());
@@ -325,12 +334,15 @@ class IntegerSetTest {
 	@Test
 	@DisplayName("Test cases for ToString")
 	void testToString() {
+		//Testing tostring with empty sret
 		IntegerSet set1 = new IntegerSet();
 		Assert.assertTrue(set1.toString().equals("[]"));
 		
+		//Testing to string with one element in set
 		set1.add(20);
 		Assert.assertTrue(set1.toString().equals("[20]"));
 		
+		//testing to string with multiple elements in the set 
 		set1.add(10);
 		Assert.assertTrue(set1.toString().equals("[20, 10]"));
 	}
