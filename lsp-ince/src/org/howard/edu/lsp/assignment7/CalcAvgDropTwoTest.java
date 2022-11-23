@@ -38,10 +38,11 @@ class CalcAvgDropTwoTest {
     // adding more elements to the list
     grades.add(90);
     grades.add(60);
+    grades.add(100);
 
     // testing that Droptwo method returns correct average
     try {
-      Assert.assertTrue(dropTwoLowest.performCompute(grades) == 90);
+      Assert.assertTrue(dropTwoLowest.performCompute(grades) == 93);
     } catch (EmptyListException ele) {
       Assert.fail("Fatal error! List exception should not have been thrown");
     }
