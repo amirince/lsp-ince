@@ -35,20 +35,11 @@ public class CalculateAverageGrade {
    * 
    * @param grades, List of integers
    * @return avgGrade
+   * @throws EmptyListException
    */
-  public int performCompute(List<Integer> grades) {
-    try {
-      int avgGrade = averageStrategy.compute(grades);
-      return avgGrade;
-    }
-
-    // the compute method throws an exception
-    catch (EmptyListException ele) {
-      // display error to user
-      System.out.println(ele);
-    }
-    return 0;
-
+  public int performCompute(List<Integer> grades) throws EmptyListException {
+    int avgGrade = averageStrategy.compute(grades);
+    return avgGrade;
   }
 
 }
