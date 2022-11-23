@@ -1,4 +1,4 @@
-package org.howard.edu.lsp.assigment7;
+package org.howard.edu.lsp.assignment7;
 
 /**
  * 

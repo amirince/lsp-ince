@@ -1,4 +1,4 @@
-package org.howard.edu.lsp.assigment7;
+package org.howard.edu.lsp.assignment7;
 
 /**
  * Class which implement the Drop two lowest grading method of the interface
