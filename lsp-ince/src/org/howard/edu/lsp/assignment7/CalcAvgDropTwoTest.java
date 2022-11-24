@@ -18,10 +18,10 @@ class CalcAvgDropTwoTest {
   /**
    * Testing the drop two lowest grading method
    */
-  @DisplayName("Test casaes for drop two lowwest grading method")
+  @DisplayName("Test if exception thrown")
   @Test
-  void testCalcAvgDropTwo() {
-    // testing that performCompute method throws an exception when the list is empty for droptwo
+  void testCalcAvgDropTwoExceptionThrown() {
+    // testing that CalcAvgDropTwo method throws an exception when the list is empty for droptwo
     // lowest grading method
     CalculateAverageGrade dropTwoLowest = new CalcAvgDropTwo();
     List<Integer> grades = new ArrayList<>();
@@ -35,7 +35,23 @@ class CalcAvgDropTwoTest {
     // less elements are in the list
     assertThrows(EmptyListException.class, () -> dropTwoLowest.performCompute(grades));
 
-    // adding more elements to the list
+
+  }
+
+  /**
+   * Testing that correct grade is returned
+   */
+  @DisplayName("Test if exception correct avg returned")
+  @Test
+  void testCalcAvgDropTwoCorrectGradeReturned() {
+
+    CalculateAverageGrade dropTwoLowest = new CalcAvgDropTwo();
+    List<Integer> grades = new ArrayList<>();
+
+
+    // adding elements to the list
+    grades.add(90);
+    grades.add(60);
     grades.add(90);
     grades.add(60);
     grades.add(100);

@@ -21,17 +21,27 @@ class CalcAvgTest {
    * Test method for testing the regular grading method
    *
    */
-  @DisplayName("Test casaes for regular grading method")
+  @DisplayName("Test if exception thrown")
   @Test
-  void testCalcAvg() {
+  void testCalcAvgExceptionThrown() {
 
     // testing that performCompute method throws an exception when the list is empty for regular
     // grading
     CalculateAverageGrade regularGrading = new CalcAvg();
     List<Integer> grades = new ArrayList<>();
     assertThrows(EmptyListException.class, () -> regularGrading.performCompute(grades));
+  }
 
+  /**
+   * Testing that correct average is returned
+   */
+  @DisplayName("Test correct average returned")
+  @Test
+  void testCalcAvgCorrectGrade() {
     // Adding items to grades
+
+    List<Integer> grades = new ArrayList<>();
+    CalculateAverageGrade regularGrading = new CalcAvg();
     grades.add(90);
     grades.add(60);
     grades.add(70);
@@ -42,6 +52,25 @@ class CalcAvgTest {
     } catch (EmptyListException ele) {
       Assert.fail("Fatal error! List exception should not have been thrown");
     }
+
+    // adding more items to grades
+    grades.add(20);
+
+    try {
+      Assert.assertTrue(regularGrading.performCompute(grades) == 60);
+    } catch (EmptyListException ele) {
+      Assert.fail("Fatal error! List exception should not have been thrown");
+    }
+
+    // adding more grades to the list
+    grades.add(50);
+    try {
+      Assert.assertTrue(regularGrading.performCompute(grades) == 58);
+    } catch (EmptyListException ele) {
+      Assert.fail("Fatal error! List exception should not have been thrown");
+    }
+
+
   }
 
 }
