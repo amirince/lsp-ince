@@ -2,7 +2,8 @@ package org.howard.edu.lsp.assignment7;
 
 /**
  * 
- * @author Amir Ince class for custom exception within the program
+ * @author Amir Ince 
+ * class for custom exception within the program
  */
 public class EmptyListException extends Exception {
   /**
