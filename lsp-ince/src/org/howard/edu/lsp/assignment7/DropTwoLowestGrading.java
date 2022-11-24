@@ -1,5 +1,6 @@
 package org.howard.edu.lsp.assignment7;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -19,8 +20,10 @@ public class DropTwoLowestGrading implements AverageStrategy {
    * @throws EmptyListException if List is empty or has 2 or less elements
    * @return Returns the average grade neglecting the lowest two scores
    */
-  public int compute(List<Integer> grades) throws EmptyListException {
+  public int compute(List<Integer> theGrades) throws EmptyListException {
 
+    // Creating a copy of the original list passed so that original list is not destroyed
+    List<Integer> grades = new ArrayList<Integer>(theGrades);
     // if the list is empty throw EmptyListException
     if (grades.size() == 0) {
       throw new EmptyListException("Error! List is empty!");

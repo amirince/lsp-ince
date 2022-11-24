@@ -45,6 +45,7 @@ class CalcAvgDropTwoTest {
   @Test
   void testCalcAvgDropTwoCorrectGradeReturned() {
 
+    // Testing if drop two method returns the correct average
     CalculateAverageGrade dropTwoLowest = new CalcAvgDropTwo();
     List<Integer> grades = new ArrayList<>();
 
@@ -62,5 +63,16 @@ class CalcAvgDropTwoTest {
     } catch (EmptyListException ele) {
       Assert.fail("Fatal error! List exception should not have been thrown");
     }
+
+    // adding more grades to the list
+    grades.add(20);
+    grades.add(10);
+
+    try {
+      Assert.assertTrue(dropTwoLowest.performCompute(grades) == 80);
+    } catch (EmptyListException ele) {
+      Assert.fail("Fatal error! List exception should not have been thrown");
+    }
+
   }
 }
