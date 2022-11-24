@@ -41,7 +41,7 @@ class CalcAvgDropTwoTest {
   /**
    * Testing that correct grade is returned
    */
-  @DisplayName("Test if exception correct avg returned")
+  @DisplayName("Test if correct avg returned")
   @Test
   void testCalcAvgDropTwoCorrectGradeReturned() {
 

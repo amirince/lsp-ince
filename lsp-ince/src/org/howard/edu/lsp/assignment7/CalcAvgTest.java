@@ -35,7 +35,7 @@ class CalcAvgTest {
   /**
    * Testing that correct average is returned
    */
-  @DisplayName("Test correct average returned")
+  @DisplayName("Test if correct average returned")
   @Test
   void testCalcAvgCorrectGrade() {
     // Adding items to grades
